@@ -1,3 +1,9 @@
-export {default as component} from './component';
-export {default as res} from './res';
-export {default as service} from './service';
+import component from './component';
+import res from './res';
+import service from './service';
+
+module.exports = {
+  ...component,
+  ...res,
+  ...service,
+};
