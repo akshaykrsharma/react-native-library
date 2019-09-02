@@ -10,13 +10,10 @@ import React from 'react';
 import {View, Text} from 'react-native';
 
 import Header from './src/component/Header';
-import Card from './src/component/Card';
 import Button from './src/component/Button';
-
-import InputTextImage from './src/component/TextFields/InputTextImage';
-import InputTextLayout from './src/component/TextFields/InputTextLayout';
 import List from './src/component/List';
 import TabBar from './src/component/Tab/TabBar';
+import APIManager from './src/service/ApiManager';
 
 const dummyData = [
   {class: 'Akshay', address: 'Jaipur', age: 20},
@@ -60,11 +57,15 @@ const App = () => {
           );
         }}
       />
-      <InputTextLayout placeholder="Password" isPassword={true} />
-      <InputTextImage placeholder="Password" isPassword={true} />
 
-      <InputTextImage />
-      <Button onPress={() => {}} title={'hello'} />
+      <Button
+        onPress={() => {
+          APIManager.getResponse('/Login', 'GET', {}, (status, response) => {
+            console.log('response=', response);
+          });
+        }}
+        title={'hello'}
+      />
     </View>
   );
 };

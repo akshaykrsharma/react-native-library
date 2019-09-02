@@ -1,11 +1,9 @@
 import axios from 'axios';
-
-const baseURL = 'https://rallycoding.herokuapp.com';
-
-// const API = axios.create({baseURL});
-const API = axios;
-
 import {PropTypes} from 'prop-types';
+import Strings from '../res/theme/Strings';
+
+const API = axios.create({baseURL: Strings.baseURL});
+
 type objType = PropTypes.func;
 
 export default class APIManager {
