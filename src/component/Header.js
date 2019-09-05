@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, Platform} from 'react-native';
 
-import Fonts from '../res/theme/Fonts';
+import {Fonts, Colors} from '../res/theme';
 import Utils from './Utils';
 
 export default class Header extends Component {
@@ -71,7 +71,7 @@ const styles = {
     justifyContent: 'space-between',
     flexDirection: 'row',
     padding: 10,
-    backgroundColor: '#FF5722',
+    backgroundColor: Colors.headerBackground,
     height: Utils.isIphoneX() ? 88 : 64,
     paddingTop: Platform.OS == 'android' ? 0 : Utils.isIphoneX() ? 44 : 20,
     alignItems: 'center',
@@ -82,11 +82,11 @@ const styles = {
     position: 'relative',
   },
   headerTextStyle: {
-    color: 'white',
+    color: Colors.headerTextColor,
     ...Fonts.boldFont(16),
   },
   leftStyle: {},
   leftTextStyle: {
-    color: 'white',
+    color: Colors.headerTextColor,
   },
 };
