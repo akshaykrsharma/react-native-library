@@ -60,9 +60,9 @@ export default class APIManager {
         callBackFx(true, response.data);
       })
       .catch(error => {
-        console.warn(JSON.stringify(error, null, 2));
+        console.log(JSON.stringify(error, null, 2));
         //cb = (isSuccessful, error);
-        callBackFx(false, error);
+        callBackFx(false, error.response);
       });
 
     return mPromise;
