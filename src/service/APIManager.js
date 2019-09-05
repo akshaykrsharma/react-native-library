@@ -2,7 +2,12 @@ import axios from 'axios';
 import {PropTypes} from 'prop-types';
 import Strings from '../res/theme/Strings';
 
-const API = axios.create({baseURL: Strings.baseURL});
+var APIObj = null;
+
+const getAPIObj = () => {
+  APIObj = axios.create({baseURL: Strings.baseURL});
+  return APIObj;
+};
 
 type objType = PropTypes.func;
 
@@ -13,16 +18,22 @@ export default class APIManager {
    * @param {methodType can be GET,POST,PUT or DELETE} methodType
    * @param {Bundle} params
    */
+  static get API() {
+    if (APIObj) {
+      return APIObj;
+    }
+    return getAPIObj();
+  }
   static createPromise(endPoint: string, methodType: string, params: object) {
     let promise = null;
     if (methodType == 'GET') {
-      promise = API.get(endPoint, {params});
+      promise = this.API.get(endPoint, {params});
     } else if (methodType == 'POST') {
-      promise = API.post(endPoint, params);
+      promise = this.API.post(endPoint, params);
     } else if (methodType == 'PUT') {
-      promise = API.put(endPoint, params);
+      promise = this.API.put(endPoint, params);
     } else if (methodType == 'DELETE') {
-      promise = API.delete(endPoint, params);
+      promise = this.API.delete(endPoint, params);
     }
 
     return promise;

@@ -1,4 +1,5 @@
 import {Dimensions, Platform} from 'react-native';
+import Strings from '../res/theme/Strings';
 const {height} = Dimensions.get('window');
 
 export default class Utils {
@@ -18,25 +19,7 @@ export default class Utils {
     return typeof comp == 'object';
   }
 
-  // static _retrieveData = async (key, cb) => {
-  //   try {
-  //     const value = await AsyncStorage.getItem(key);
-  //     if (value !== null) {
-  //       // We have data!!
-  //       cb(value);
-  //     } else {
-  //       cb(null);
-  //     }
-  //   } catch (error) {
-  //     // Error retrieving data
-  //   }
-  // };
-
-  // static _storeData = async (key, value) => {
-  //   try {
-  //     await AsyncStorage.setItem(key, value);
-  //   } catch (error) {
-  //     // Error saving data
-  //   }
-  // };
+  static updateConfig = config => {
+    Object.keys(config).forEach(i => (Strings[i] = config[i]));
+  };
 }
