@@ -1,3 +1,3 @@
-import ApiManager from './ApiManager';
+import APIManager from './APIManager';
 
-module.exports = {ApiManager};
+module.exports = {APIManager};
