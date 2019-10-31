@@ -52,7 +52,7 @@ export default class Header extends Component {
 
   render() {
     return (
-      <View style={styles.headerStyle}>
+      <View style={Utils.styleMerger(styles.headerStyle, this.props.style)}>
         <View style={{flex: 0.25}}>{this.renderLeftButton()}</View>
         <View
           style={{flex: 0.5, justifyContent: 'center', alignItems: 'center'}}>
