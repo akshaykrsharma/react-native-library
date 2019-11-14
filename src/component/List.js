@@ -87,7 +87,7 @@ export default class List extends Component {
           this.renderNoDta()}
         {!!this.state.data && (
           <FlatList
-            contentContainerStyle={{paddingBottom: 220}}
+            contentContainerStyle={Utils.styleMerger(styles.contentContainerStyle,this.props.contentContainerStyle)}
             style={{width: '100%', paddingHorizontal: 20}}
             {...this.props}
             data={this.getDataForList()}
@@ -102,6 +102,7 @@ export default class List extends Component {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
+    overflow: 'hidden',
   },
   noDataTextStyle: {
     fontSize: 20,
@@ -109,4 +110,7 @@ const styles = StyleSheet.create({
     color: 'red',
     padding: 10,
   },
+  contentContainerStyle:{
+    paddingBottom: 220
+  }
 });
