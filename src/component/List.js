@@ -90,6 +90,7 @@ export default class List extends Component {
             contentContainerStyle={Utils.styleMerger(styles.contentContainerStyle,this.props.contentContainerStyle)}
             style={{width: '100%', paddingHorizontal: 20}}
             {...this.props}
+            ref={o => (this.parentList = o)}
             data={this.getDataForList()}
             renderItem={this.props.renderItem}
           />
