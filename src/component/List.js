@@ -88,7 +88,7 @@ export default class List extends Component {
         {!!this.state.data && (
           <FlatList
             contentContainerStyle={Utils.styleMerger(styles.contentContainerStyle,this.props.contentContainerStyle)}
-            style={{width: '100%', paddingHorizontal: 20}}
+            style={Utils.styleMerger(styles.listStyle,this.props.listStyle)}
             {...this.props}
             ref={o => (this.parentList = o)}
             data={this.getDataForList()}
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     color: 'red',
     padding: 10,
   },
+  listStyle:{width: '100%', paddingHorizontal: 20,paddingBottom:20},
   contentContainerStyle:{
     paddingBottom: 220
   }
